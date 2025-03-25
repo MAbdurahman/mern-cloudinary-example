@@ -12,6 +12,7 @@ const userSchema = new Schema({
       username: {
          type: String,
          trim: true,
+         unique: false,
          required: [true, 'First and last name are required!'],
          minlength: [4, 'Full name must be at least 4 characters!'],
          maxLength: [32, 'Full name cannot exceed 32 characters!'],
@@ -30,7 +31,8 @@ const userSchema = new Schema({
          trim: true,
          required: [true, 'Password is required!'],
          minlength: [8, 'Password must be at least 8 characters!'],
-         match: [password_pattern, 'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and a special character!']
+         match: [password_pattern, 'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and a special character!'],
+         select: false,
       },
       role: {
          type: String,

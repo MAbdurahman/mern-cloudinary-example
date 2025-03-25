@@ -34,3 +34,5 @@ export function validatePassword(password) {
    return password_trimmed.match(password_pattern);
 
 }
+export const messageHandler = (res,  message = '', success = true, statusCode = 200, data = {},) =>
+   res.status(statusCode).json({ message, success, data });
