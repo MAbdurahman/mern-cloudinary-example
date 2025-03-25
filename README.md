@@ -3,6 +3,7 @@
 ## Features
 - MongoDB, Express.js, ReactJS, and Node.js
 - Authentication and Authorization with JWT
+- Cloudinary
 
 
 ### Create config.env file in config directory
