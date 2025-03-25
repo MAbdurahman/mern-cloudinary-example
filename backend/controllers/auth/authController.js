@@ -3,9 +3,11 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../../models/userModel.js';
 import ErrorHandler from '../../utils/errorHandlerUtil.js';
+import {validateEmail, validateName, validatePassword} from '../../utils/functionsUtil.js';
 
 export const signUpUser = async (req, res, next) => {
-   console.log('signUpUser');
+   const {email, password, username} = req.body;
+
    res.status(201).json({
       message: 'SignUp User',
    })

@@ -41,5 +41,27 @@ const userSchema = new Schema({
    {timestamps: true}
 );
 
+/********************* encrypt password before saving user *********************/
+userSchema.pre('save', async function(next){
+   const user =  this;
+   if(!user.isModified('password')) {
+      return next();
+   }
+   user.password = await bcrypt.hash(user.password, 10);
+   next();
+});
+
+/************************** compare user password **************************/
+userSchema.methods.comparePassword = async function (enteredPassword) {
+   return await bcrypt.compare(enteredPassword, this.password);
+};
+
+/**************************** generate JWT token ****************************/
+userSchema.methods.jwtGenerateToken = function () {
+   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_TIME,
+   });
+};
+
 const User = new model('User', userSchema);
 export default User;

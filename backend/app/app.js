@@ -1,4 +1,5 @@
 /************************* imports *************************/
+import bodyParser from 'body-parser';
 import colors from 'colors';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -35,6 +36,11 @@ app.use(
       credentials: true,
    })
 );
+/*app.use(bodyParser.json({limit: '100mb'}));
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+   limit: '100mb',
+   extended: true
+}));*/
 app.use(cookieParser());
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
