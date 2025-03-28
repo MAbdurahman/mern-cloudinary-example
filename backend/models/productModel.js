@@ -2,10 +2,10 @@
 import {model, Schema} from 'mongoose';
 
 const productSchema = new Schema({
-      title: {
+      productName: {
          type: String,
          trim: true,
-         required: [true, 'Product title is required'],
+         required: [true, 'Product name is required'],
 
       },
       image: {
@@ -47,7 +47,7 @@ const productSchema = new Schema({
       totalStock: {
          type: Number,
          trim: true,
-         required: [true, 'Product total is required'],
+         required: [true, 'Product in stock is required!'],
       },
       averageReview: {
          type: Number,

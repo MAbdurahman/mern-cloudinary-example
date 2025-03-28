@@ -1,6 +1,5 @@
 /************************* imports *************************/
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import User from '../../models/userModel.js';
 import ErrorHandler from '../../utils/errorHandlerUtil.js';
 import {validateEmail, validateName, validatePassword, messageHandler}
