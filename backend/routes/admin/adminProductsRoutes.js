@@ -12,10 +12,4 @@ router.delete('/delete-product/:productId', deleteProduct);
 router.get('/', getAllProducts);
 router.get('/:productId', getSingleProduct);
 
-
-
-
-
-
-
 export default router;

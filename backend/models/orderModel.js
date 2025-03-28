@@ -7,7 +7,7 @@ const orderSchema = new Schema({
       cartItems: [
          {
             productId: String,
-            title: String,
+            productName: String,
             image: String,
             price: String,
             quantity: Number
