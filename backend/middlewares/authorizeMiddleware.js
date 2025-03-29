@@ -26,3 +26,15 @@ export const isAuthenticated = async (req, res, next) => {
 
    }
 }
+
+export const isRoleAuthorized = async (...roles) => {
+   return (req, res, next) => {
+      if (!roles.includes(req.user.role)) {
+         return next(
+            new ErrorHandler(
+               `Role (${req.user.role}) is forbidden access to this resource!`,
+               403))
+      }
+      next();
+   };
+}
